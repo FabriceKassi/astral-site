@@ -1,0 +1,68 @@
+<%- include('partials/header') %>
+
+<section class="page-hero page-hero--rooms">
+  <div class="page-hero-overlay"></div>
+  <div class="container">
+    <p class="page-hero-eyebrow">Hébergement</p>
+    <h1 class="page-hero-title">Nos chambres</h1>
+    <p class="page-hero-sub">Détendez-vous et profitez de l'ambiance urbaine dans des hébergements modernes et chics</p>
+  </div>
+</section>
+
+<!-- Moteur de réservation -->
+<section class="resa-band-static">
+  <div class="container">
+    <form class="resa-form resa-form--static" id="resaForm" action="/reservation" method="GET">
+      <div class="resa-field">
+        <label>Arrivée <span class="req">*</span></label>
+        <input type="date" id="dateArrivee" name="arrivee" required>
+      </div>
+      <div class="resa-field">
+        <label>Départ <span class="req">*</span></label>
+        <input type="date" id="dateDepart" name="depart" required>
+      </div>
+      <div class="resa-field">
+        <label>Adultes</label>
+        <select id="adultsSelect" name="adultes">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+      <div class="resa-field">
+        <label>Enfants</label>
+        <select id="childrenSelect" name="enfants">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+        </select>
+      </div>
+      <button type="submit" class="resa-submit">Chercher</button>
+    </form>
+    <p class="resa-note" id="resaNote">3 personnes maximum par chambre (adultes + enfants).</p>
+  </div>
+</section>
+
+<section class="section section--rooms" id="chambres">
+  <div class="container">
+    <div class="rooms-grid rooms-grid--2col">
+      <% rooms.forEach(room => { %>
+        <article class="room-card" id="room-<%= room.id %>">
+          <div class="room-img room-img--<%= room.id %>"></div>
+          <div class="room-body">
+            <h3><%= room.name %></h3>
+            <p><%= room.description %></p>
+            <ul class="room-meta">
+              <li><%= room.surface %> m²</li>
+              <li>3 pers. max</li>
+              <li><%= room.pricePerNight.toLocaleString('fr-FR') %> FCFA/nuit</li>
+            </ul>
+            <a href="#bandeau-resa" class="btn-room" onclick="document.getElementById('dateArrivee').focus(); return false;">Vérifier les disponibilités</a>
+          </div>
+        </article>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
