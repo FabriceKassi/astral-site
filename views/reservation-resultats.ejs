@@ -1,0 +1,77 @@
+<%- include('partials/header') %>
+
+<section class="booking-flow">
+  <div class="container">
+
+    <!-- Fil d'étapes -->
+    <div class="booking-steps">
+      <span class="booking-step booking-step--active">1. Recherche</span>
+      <span class="booking-step-sep">›</span>
+      <span class="booking-step booking-step--active">2. Chambres</span>
+      <span class="booking-step-sep">›</span>
+      <span class="booking-step">3. Récapitulatif</span>
+      <span class="booking-step-sep">›</span>
+      <span class="booking-step">4. Vos informations</span>
+      <span class="booking-step-sep">›</span>
+      <span class="booking-step">5. Confirmation</span>
+    </div>
+
+    <div class="booking-search-summary">
+      <div>
+        <strong><%= new Date(arrivee).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' }) %></strong>
+        <span>→</span>
+        <strong><%= new Date(depart).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }) %></strong>
+      </div>
+      <div><%= nights %> nuit<%= nights > 1 ? 's' : '' %> · <%= adultes %> adulte<%= adultes > 1 ? 's' : '' %><%= enfants > 0 ? ' · ' + enfants + ' enfant' + (enfants > 1 ? 's' : '') : '' %></div>
+      <a href="/hebergement" class="booking-modify-link">Modifier la recherche</a>
+    </div>
+
+    <% if (chambresRequises > 1) { %>
+      <p class="booking-occupancy-notice">
+        Pour <%= adultes + enfants %> personnes (max <%= maxOccupancy %>/chambre), nous vous recommandons de réserver <strong><%= chambresRequises %> chambres</strong>. Vous pourrez ajuster le nombre de chambres ci-dessous.
+      </p>
+    <% } %>
+
+    <h1 class="booking-title">Chambres disponibles</h1>
+
+    <div class="results-list">
+      <% rooms.forEach(room => { %>
+        <article class="result-card">
+          <div class="result-img room-img--<%= room.id %>"></div>
+          <div class="result-body">
+            <h2><%= room.name %></h2>
+            <p class="result-desc"><%= room.description %></p>
+            <ul class="result-amenities">
+              <% room.amenities.forEach(a => { %><li><%= a %></li><% }) %>
+            </ul>
+            <div class="result-meta">
+              <span><%= room.surface %> m²</span>
+              <span>3 pers. max / chambre</span>
+            </div>
+          </div>
+          <div class="result-rates">
+            <% room.rates.forEach(rate => { %>
+              <div class="rate-option">
+                <div class="rate-option-info">
+                  <strong><%= rate.label %></strong>
+                  <span><%= rate.description %></span>
+                </div>
+                <div class="rate-option-price">
+                  <span class="rate-total"><%= rate.totalPrice.toLocaleString('fr-FR') %> FCFA</span>
+                  <span class="rate-detail">pour <%= chambresRequises %> chambre<%= chambresRequises > 1 ? 's' : '' %> · <%= nights %> nuit<%= nights > 1 ? 's' : '' %></span>
+                </div>
+                <a class="btn-room btn-room--select"
+                   href="/reservation/recapitulatif?roomId=<%= room.id %>&rateId=<%= rate.id %>&arrivee=<%= arrivee %>&depart=<%= depart %>&adultes=<%= adultes %>&enfants=<%= enfants %>&chambres=<%= chambresRequises %>">
+                  Sélectionner
+                </a>
+              </div>
+            <% }) %>
+          </div>
+        </article>
+      <% }) %>
+    </div>
+
+  </div>
+</section>
+
+<%- include('partials/footer') %>
