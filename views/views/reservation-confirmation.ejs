@@ -1,0 +1,46 @@
+<%- include('partials/header') %>
+
+<section class="booking-flow">
+  <div class="container container--narrow">
+
+    <div class="booking-steps">
+      <span class="booking-step booking-step--done">1. Recherche</span>
+      <span class="booking-step-sep">›</span>
+      <span class="booking-step booking-step--done">2. Chambres</span>
+      <span class="booking-step-sep">›</span>
+      <span class="booking-step booking-step--done">3. Récapitulatif</span>
+      <span class="booking-step-sep">›</span>
+      <span class="booking-step booking-step--done">4. Vos informations</span>
+      <span class="booking-step-sep">›</span>
+      <span class="booking-step booking-step--active">5. Confirmation</span>
+    </div>
+
+    <div class="confirmation-card">
+      <div class="confirmation-icon">✓</div>
+      <h1 class="confirmation-title">Merci pour votre réservation</h1>
+      <p class="confirmation-text">Votre demande a bien été enregistrée. Notre équipe la confirmera sous peu par email et par téléphone.</p>
+
+      <div class="confirmation-ref">
+        <span>Numéro de réservation</span>
+        <strong><%= booking.ref %></strong>
+      </div>
+
+      <table class="recap-table">
+        <tr><td>Chambre</td><td><%= booking.roomName %> — <%= booking.rateLabel %></td></tr>
+        <tr><td>Dates</td><td><%= new Date(booking.arrivee).toLocaleDateString('fr-FR') %> → <%= new Date(booking.depart).toLocaleDateString('fr-FR') %></td></tr>
+        <tr><td>Voyageurs</td><td><%= booking.adultes %> adulte<%= booking.adultes > 1 ? 's' : '' %><%= booking.enfants > 0 ? ' · ' + booking.enfants + ' enfant' + (booking.enfants > 1 ? 's' : '') : '' %></td></tr>
+        <tr><td>Montant total</td><td><strong><%= booking.total.toLocaleString('fr-FR') %> FCFA</strong></td></tr>
+      </table>
+
+      <p class="confirmation-note">
+        📧 Un récapitulatif a été envoyé à <strong><%= booking.client.email %></strong><br>
+        <em>(L'envoi automatique d'emails sera activé en Phase 2 de développement)</em>
+      </p>
+
+      <a href="/" class="btn-primary">Retour à l'accueil</a>
+    </div>
+
+  </div>
+</section>
+
+<%- include('partials/footer') %>
