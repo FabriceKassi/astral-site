@@ -1,0 +1,50 @@
+<%- include('partials/header') %>
+
+<section class="booking-flow">
+  <div class="container container--narrow">
+
+    <div class="booking-steps">
+      <span class="booking-step booking-step--done">1. Recherche</span>
+      <span class="booking-step-sep">›</span>
+      <span class="booking-step booking-step--done">2. Chambres</span>
+      <span class="booking-step-sep">›</span>
+      <span class="booking-step booking-step--active">3. Récapitulatif</span>
+      <span class="booking-step-sep">›</span>
+      <span class="booking-step">4. Vos informations</span>
+      <span class="booking-step-sep">›</span>
+      <span class="booking-step">5. Confirmation</span>
+    </div>
+
+    <h1 class="booking-title">Récapitulatif de votre séjour</h1>
+
+    <div class="recap-card">
+      <div class="recap-header">
+        <h2>Hôtel Astral</h2>
+        <span class="recap-room-name"><%= room.name %> — <%= rate.label %></span>
+      </div>
+
+      <table class="recap-table">
+        <tr><td>Dates du séjour</td><td><%= new Date(arrivee).toLocaleDateString('fr-FR') %> → <%= new Date(depart).toLocaleDateString('fr-FR') %></td></tr>
+        <tr><td>Nombre de nuits</td><td><%= nights %></td></tr>
+        <tr><td>Nombre de chambres</td><td><%= nbChambres %></td></tr>
+        <tr><td>Voyageurs</td><td><%= adultes %> adulte<%= adultes > 1 ? 's' : '' %><%= enfants > 0 ? ' · ' + enfants + ' enfant' + (enfants > 1 ? 's' : '') : '' %></td></tr>
+        <tr><td>Conditions tarifaires</td><td><%= rate.description %></td></tr>
+        <tr><td>Prix par nuit / chambre</td><td><%= pricePerNightWithRate.toLocaleString('fr-FR') %> FCFA</td></tr>
+      </table>
+
+      <div class="recap-totals">
+        <div class="recap-line"><span>Sous-total</span><span><%= subtotal.toLocaleString('fr-FR') %> FCFA</span></div>
+        <div class="recap-line"><span>Taxes de séjour (6%)</span><span><%= taxes.toLocaleString('fr-FR') %> FCFA</span></div>
+        <div class="recap-line recap-line--total"><span>Total</span><span><%= total.toLocaleString('fr-FR') %> FCFA</span></div>
+      </div>
+
+      <a class="btn-primary btn-full"
+         href="/reservation/informations?roomId=<%= room.id %>&rateId=<%= rate.id %>&arrivee=<%= arrivee %>&depart=<%= depart %>&adultes=<%= adultes %>&enfants=<%= enfants %>&chambres=<%= nbChambres %>">
+        Continuer
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<%- include('partials/footer') %>
