@@ -1,0 +1,27 @@
+<%- include('partials/header') %>
+
+<section class="section section--dark" id="contact" style="padding-top: 140px;">
+  <div class="container container--split">
+    <div class="split-text">
+      <p class="section-eyebrow section-eyebrow--light">Nous contacter</p>
+      <h2 class="section-title section-title--light">Parlons de votre séjour</h2>
+      <p class="split-body">Une question, une demande spéciale, un événement à organiser ? Notre équipe répond sous 24h.</p>
+      <ul class="contact-list">
+        <li>📍 Abidjan Yopougon, Zone Industrielle</li>
+        <li>📞 +225 05 44 01 53 53</li>
+        <li>📞 +225 05 86 86 94 50</li>
+        <li>✉️ info.astral@hotel-hlh.com</li>
+      </ul>
+    </div>
+    <form class="contact-form" id="contactForm">
+      <input type="text" name="nom" placeholder="Nom complet" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="tel" name="telephone" placeholder="Téléphone">
+      <textarea name="message" placeholder="Votre message" rows="4" required></textarea>
+      <button type="submit" class="btn-primary">Envoyer</button>
+      <p class="contact-feedback" id="contactFeedback"></p>
+    </form>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
