@@ -1,0 +1,37 @@
+<%
+  // activePage peut être absent (ex: pages du tunnel de réservation)
+  const _activePage = typeof activePage !== 'undefined' ? activePage : '';
+%>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= title %></title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <span class="logo-eyebrow">Business Hôtel</span>
+      <span class="logo-text">ASTRAL</span>
+      <span class="logo-stars">★★★</span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="/" class="<%= _activePage === 'accueil' ? 'active' : '' %>">Accueil</a>
+      <a href="/hebergement" class="<%= _activePage === 'hebergement' ? 'active' : '' %>">Hébergement</a>
+      <a href="/restaurant" class="<%= _activePage === 'restaurant' ? 'active' : '' %>">Restaurant</a>
+      <a href="/reunions-evenements" class="<%= _activePage === 'reunions' ? 'active' : '' %>">Réunions &amp; événements</a>
+      <a href="/salle-de-sport" class="<%= _activePage === 'sport' ? 'active' : '' %>">Salle de sport</a>
+      <a href="/contacts" class="nav-contact <%= _activePage === 'contacts' ? 'active' : '' %>">Contacts</a>
+    </nav>
+    <button class="burger" id="burgerBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
