@@ -1,0 +1,103 @@
+<%- include('partials/header') %>
+
+<section class="booking-flow">
+  <div class="container container--narrow">
+
+    <div class="booking-steps">
+      <span class="booking-step booking-step--done">1. Recherche</span>
+      <span class="booking-step-sep">›</span>
+      <span class="booking-step booking-step--done">2. Chambres</span>
+      <span class="booking-step-sep">›</span>
+      <span class="booking-step booking-step--done">3. Récapitulatif</span>
+      <span class="booking-step-sep">›</span>
+      <span class="booking-step booking-step--active">4. Vos informations</span>
+      <span class="booking-step-sep">›</span>
+      <span class="booking-step">5. Confirmation</span>
+    </div>
+
+    <h1 class="booking-title">Vos informations</h1>
+
+    <div class="info-layout">
+      <form class="info-form" action="/reservation/confirmer" method="POST">
+        <input type="hidden" name="roomId" value="<%= room.id %>">
+        <input type="hidden" name="rateId" value="<%= rate.id %>">
+        <input type="hidden" name="arrivee" value="<%= arrivee %>">
+        <input type="hidden" name="depart" value="<%= depart %>">
+        <input type="hidden" name="adultes" value="<%= adultes %>">
+        <input type="hidden" name="enfants" value="<%= enfants %>">
+        <input type="hidden" name="chambres" value="<%= nbChambres %>">
+
+        <div class="form-row">
+          <div class="form-field">
+            <label>Prénom <span class="req">*</span></label>
+            <input type="text" name="prenom" required>
+          </div>
+          <div class="form-field">
+            <label>Nom <span class="req">*</span></label>
+            <input type="text" name="nom" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label>Email <span class="req">*</span></label>
+            <input type="email" name="email" required>
+          </div>
+          <div class="form-field">
+            <label>Téléphone <span class="req">*</span></label>
+            <input type="tel" name="telephone" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label>WhatsApp</label>
+            <input type="tel" name="whatsapp">
+          </div>
+          <div class="form-field">
+            <label>Heure estimée d'arrivée</label>
+            <input type="time" name="heureArrivee">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label>Pays <span class="req">*</span></label>
+            <input type="text" name="pays" required>
+          </div>
+          <div class="form-field">
+            <label>Ville <span class="req">*</span></label>
+            <input type="text" name="ville" required>
+          </div>
+        </div>
+
+        <div class="form-field form-field--full">
+          <label>Message spécial</label>
+          <textarea name="message" rows="3" placeholder="Demande particulière, allergie, occasion spéciale..."></textarea>
+        </div>
+
+        <label class="form-checkbox">
+          <input type="checkbox" name="cgvAccepted" value="1" required>
+          <span>J'accepte les <a href="#">conditions générales</a> de l'Hôtel Astral</span>
+        </label>
+
+        <button type="submit" class="btn-primary btn-full">Confirmer ma réservation</button>
+      </form>
+
+      <aside class="info-summary">
+        <h3>Votre séjour</h3>
+        <p class="info-summary-room"><%= room.name %></p>
+        <p class="info-summary-rate"><%= rate.label %></p>
+        <hr>
+        <p><%= new Date(arrivee).toLocaleDateString('fr-FR') %> → <%= new Date(depart).toLocaleDateString('fr-FR') %></p>
+        <p><%= nights %> nuit<%= nights > 1 ? 's' : '' %> · <%= nbChambres %> chambre<%= nbChambres > 1 ? 's' : '' %></p>
+        <hr>
+        <p class="info-summary-total"><strong>Total</strong><strong><%= total.toLocaleString('fr-FR') %> FCFA</strong></p>
+        <p class="info-summary-note">Taxes incluses (<%= taxes.toLocaleString('fr-FR') %> FCFA)</p>
+      </aside>
+    </div>
+
+  </div>
+</section>
+
+<%- include('partials/footer') %>
