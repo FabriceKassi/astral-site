@@ -1,0 +1,64 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <h4>Visiter</h4>
+      <a href="/">Accueil</a>
+      <a href="/hebergement">Hébergement</a>
+      <a href="/reunions-evenements">Réunions &amp; événements</a>
+      <a href="/restaurant">Restaurant</a>
+      <a href="/salle-de-sport">Salle de sport</a>
+      <a href="/contacts">Contacts</a>
+    </div>
+    <div class="footer-col">
+      <h4>Retrouver mes réservations</h4>
+      <a href="/contacts">Support</a>
+      <a href="/contacts">FAQ</a>
+      <a href="#">Conditions générales de services</a>
+      <a href="#">Conditions générales d'utilisation</a>
+      <a href="/contacts">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contacts</h4>
+      <p>📍 Abidjan Yopougon, Zone Industrielle</p>
+      <p>📞 +225 05 44 01 53 53<br>📞 +225 05 86 86 94 50</p>
+      <p>✉️ info.astral@hotel-hlh.com</p>
+    </div>
+    <div class="footer-col">
+      <h4>Bulletin</h4>
+      <p>Entrez votre adresse e-mail pour rester informé de nos réductions et offres spéciales.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <label for="newsletterEmail">Adresse e-mail</label>
+        <input type="email" id="newsletterEmail" name="email" required>
+        <button type="submit" class="btn-newsletter">Envoyer</button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p>© 2026 All Rights Reserved</p>
+      <a href="#">Terms &amp; Conditions</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ MODALE DEVIS ============ -->
+<div class="devis-overlay" id="devisOverlay">
+  <div class="devis-modal">
+    <button class="devis-close" id="devisClose" aria-label="Fermer">✕</button>
+    <h3 id="devisTitle">Demande de devis</h3>
+    <form id="devisForm">
+      <input type="hidden" id="devisType" name="type" value="">
+      <input type="text" name="nom" placeholder="Nom complet" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="tel" name="telephone" placeholder="Téléphone">
+      <input type="date" name="dateSouhaitee" placeholder="Date souhaitée">
+      <textarea name="details" placeholder="Détails de votre demande (nombre de personnes, durée, besoins spécifiques...)" rows="3"></textarea>
+      <button type="submit" class="btn-primary">Envoyer la demande</button>
+    </form>
+    <p class="devis-feedback" id="devisFeedback"></p>
+  </div>
+</div>
+
+<script src="/js/script.js"></script>
+</body>
+</html>
