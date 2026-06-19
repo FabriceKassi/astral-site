@@ -1,0 +1,120 @@
+<%- include('partials/header') %>
+
+<!-- ============ HERO — COVER 3 IMAGES ============ -->
+<section class="hero" id="accueil">
+  <div class="hero-carousel" id="heroCarousel">
+    <div class="hero-slide hero-slide--1 active"></div>
+    <div class="hero-slide hero-slide--2"></div>
+    <div class="hero-slide hero-slide--3"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-dots" id="heroDots">
+    <button class="hero-dot active" data-slide="0" aria-label="Image 1"></button>
+    <button class="hero-dot" data-slide="1" aria-label="Image 2"></button>
+    <button class="hero-dot" data-slide="2" aria-label="Image 3"></button>
+  </div>
+  <div class="hero-content">
+    <h1 class="hero-title">BIENVENUE EN CLASSE AFFAIRE</h1>
+  </div>
+
+  <!-- BANDEAU RÉSERVATION -->
+  <div class="bandeau-resa" id="bandeau-resa">
+    <form class="resa-form" id="resaForm" action="/reservation" method="GET">
+      <div class="resa-field">
+        <label>Arrivée <span class="req">*</span></label>
+        <input type="date" id="dateArrivee" name="arrivee" required>
+      </div>
+      <div class="resa-field">
+        <label>Départ <span class="req">*</span></label>
+        <input type="date" id="dateDepart" name="depart" required>
+      </div>
+      <div class="resa-field">
+        <label>Adultes</label>
+        <select id="adultsSelect" name="adultes">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+      <div class="resa-field">
+        <label>Enfants</label>
+        <select id="childrenSelect" name="enfants">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+        </select>
+      </div>
+      <button type="submit" class="resa-submit">Chercher</button>
+    </form>
+    <p class="resa-note" id="resaNote">3 personnes maximum par chambre (adultes + enfants). Au-delà, plusieurs chambres seront proposées.</p>
+  </div>
+</section>
+
+<!-- ============ BIENVENUE EN CLASSE AFFAIRE ============ -->
+<section class="section section--welcome">
+  <div class="container container--split">
+    <div class="split-text">
+      <p class="section-eyebrow">Business hôtel à Abidjan Yopougon</p>
+      <h2 class="section-title">Bienvenue en classe affaire</h2>
+      <p class="welcome-tagline">Confort et services professionnels à 15 minutes du Plateau</p>
+      <p class="split-body">Situé au cœur de la zone industrielle de Yopougon, l'Hôtel Astral vous offre l'équilibre parfait entre confort, fonctionnalité et hospitalité à Abidjan. Chambres modernes, restaurant savoureux, salle de sport et espaces de réunion équipés… tout est conçu pour sublimer votre séjour.</p>
+      <div class="welcome-actions">
+        <button class="btn-primary" data-scroll-to="bandeau-resa">Réservez</button>
+        <a href="/hebergement" class="btn-secondary">Plus de détails</a>
+      </div>
+    </div>
+    <div class="welcome-visual-wrap">
+      <div class="welcome-stats">
+        <div class="welcome-stat">
+          <span class="welcome-stat-icon">🛎️</span>
+          <span class="welcome-stat-num">1</span>
+          <span class="welcome-stat-label">Restaurant</span>
+        </div>
+        <div class="welcome-stat">
+          <span class="welcome-stat-icon">👥</span>
+          <span class="welcome-stat-num">2</span>
+          <span class="welcome-stat-label">Salles de réunion</span>
+        </div>
+        <div class="welcome-stat">
+          <span class="welcome-stat-icon">🏋️</span>
+          <span class="welcome-stat-num">1</span>
+          <span class="welcome-stat-label">Salle de sport</span>
+        </div>
+      </div>
+      <div class="welcome-photo"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NOS SERVICES ============ -->
+<section class="section section--services">
+  <div class="container">
+    <h2 class="section-title section-title--center">Nos services</h2>
+    <p class="section-intro section-intro--center">Profitez de <strong>services hôteliers complets</strong> : hébergement, restaurant, salle de sport, réunion pour un séjour agréable à Yopougon.</p>
+
+    <div class="services-grid">
+      <article class="service-card">
+        <div class="service-img service-img--restaurant"></div>
+        <h3>Le Restaurant de l'Hôtel Astral Abidjan</h3>
+        <p>Cuisine africaine et internationale, cadre élégant, service rapide et saveurs uniques pour vos repas professionnels ou détente.</p>
+        <a href="/restaurant" class="btn-room">En savoir plus</a>
+      </article>
+
+      <article class="service-card">
+        <div class="service-img service-img--meeting"></div>
+        <h3>Salle de Réunion Équipée à Yopougon</h3>
+        <p>Salle de réunion moderne et climatisée. Wi-Fi, projecteur, confort et cadre professionnel pour vos réunions et séminaires.</p>
+        <a href="/reunions-evenements" class="btn-room">En savoir plus</a>
+      </article>
+
+      <article class="service-card">
+        <div class="service-img service-img--gym"></div>
+        <h3>Salle de sport</h3>
+        <p>Salle de sport moderne et climatisée : équipements fitness, musculation, cardio, bien-être et détente à 15 minutes du Plateau.</p>
+        <a href="/salle-de-sport" class="btn-room">En savoir plus</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
