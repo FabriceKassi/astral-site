@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= title %></title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/admin.css">
+</head>
+<body class="admin-body">
+  <div class="login-card">
+    <h1>Administration Astral</h1>
+    <p class="login-sub">Connectez-vous pour gérer les réservations</p>
+    <% if (error) { %>
+      <p class="login-error">Identifiants incorrects.</p>
+    <% } %>
+    <form method="POST" action="/admin/login">
+      <label>Identifiant</label>
+      <input type="text" name="username" required autofocus>
+      <label>Mot de passe</label>
+      <input type="password" name="password" required>
+      <button type="submit" class="btn-primary btn-full">Se connecter</button>
+    </form>
+  </div>
+</body>
+</html>
