@@ -1,0 +1,14 @@
+<%- include('partials/header') %>
+
+<section class="booking-flow">
+  <div class="container container--narrow">
+    <div class="confirmation-card">
+      <div class="confirmation-icon confirmation-icon--error">✕</div>
+      <h1 class="confirmation-title">Une erreur est survenue</h1>
+      <p class="confirmation-text"><%= message %></p>
+      <a href="/hebergement" class="btn-primary">Retour à la recherche</a>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
