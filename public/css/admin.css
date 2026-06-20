@@ -1,0 +1,55 @@
+/* ===================================================
+   ADMIN — Hôtel Astral
+=================================================== */
+
+.admin-body { background: #f4f4f4; }
+
+.login-card {
+  max-width: 380px;
+  margin: 100px auto;
+  background: var(--blanc);
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: 0 16px 50px rgba(0,0,0,0.1);
+}
+.login-card h1 { font-size: 1.3rem; font-weight: 700; margin-bottom: 6px; color: var(--rouge); }
+.login-sub { font-size: 0.85rem; color: var(--gris-texte); margin-bottom: 24px; }
+.login-card label { display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; margin-top: 14px; }
+.login-error { color: var(--rouge); font-size: 0.85rem; margin-bottom: 10px; }
+
+.admin-shell { max-width: 1280px; margin: 0 auto; padding: 30px 24px 80px; }
+.admin-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #ddd;
+}
+.admin-logo { font-weight: 700; color: var(--rouge); font-size: 1.1rem; }
+.admin-logout { background: var(--noir); color: var(--blanc); padding: 9px 18px; border-radius: var(--radius); font-size: 0.82rem; font-weight: 600; }
+
+.admin-stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-bottom: 36px; }
+.admin-stat-card { background: var(--blanc); padding: 22px; border-radius: var(--radius); box-shadow: 0 4px 16px rgba(0,0,0,0.05); }
+.admin-stat-num { display: block; font-size: 1.6rem; font-weight: 700; color: var(--rouge); }
+.admin-stat-label { font-size: 0.8rem; color: var(--gris-texte); }
+
+.admin-section { background: var(--blanc); border-radius: var(--radius); padding: 28px; margin-bottom: 28px; box-shadow: 0 4px 16px rgba(0,0,0,0.04); }
+.admin-section h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 18px; }
+.admin-section-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; margin-bottom: 18px; }
+.admin-filters { display: flex; gap: 10px; flex-wrap: wrap; }
+.admin-filters input, .admin-filters select { width: auto; min-width: 200px; }
+
+.admin-table { font-size: 0.86rem; }
+.admin-table th { text-align: left; padding: 10px 12px; background: var(--creme); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--gris-texte); }
+.admin-table td { padding: 12px; border-bottom: 1px solid #f2f2f2; vertical-align: top; }
+.admin-table small { color: var(--gris-texte); }
+.admin-empty { text-align: center; color: var(--gris-texte); padding: 30px !important; }
+
+.status-badge { padding: 4px 10px; border-radius: var(--radius); font-size: 0.74rem; font-weight: 600; text-transform: capitalize; }
+.status-badge--en_attente { background: #fff4e0; color: #b5790a; }
+.status-badge--confirmée { background: #e3f5ea; color: var(--vert); }
+.status-badge--annulée { background: #fdeaec; color: var(--rouge); }
+
+.admin-status-form select { font-size: 0.78rem; padding: 6px 8px; }
+
+@media (max-width: 900px) {
+  .admin-stats-row { grid-template-columns: repeat(2, 1fr); }
+  .admin-table { display: block; overflow-x: auto; white-space: nowrap; }
+}
